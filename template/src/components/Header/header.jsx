@@ -29,8 +29,23 @@ function Header() {
           </li>
         </ul>
         <ul
-          className={` text-black md:text-white my-5 md:my-0 mx-[-100px] md:mx-0 bg-black md:bg-none  
-              block md:flex justify-center items-center text-lg transition-all duration-500  ${open ? 'lg:opacity-1 md:opacity-1 opacity-0 ' : 'lg:opacity-1 md:opacity-1 opacity-1 '}`}>
+          className= {`text-black md:text-white my-5 md:my-0  md:mx-0  block md:hidden justify-center items-center text-lg transition-all duration-500 bg-red-600 ${ open?'mx-[-400px]':' mx-[-90px]'}  `}>
+          {menu.map((value, index) => (
+            <li className=' w-full h-full ml-5 px-2 py-1 my-7 md:my-0 hover:bg-none  md:hover:bg-white hover:text-black transition-colors duration-300 '><a href={value.link}>{value.name}</a></li>
+          ))}
+          <li className='w-full h-full ml-5 px-2 py-1 my-7 md:my-0 hover:bg-none  md:hover:bg-white hover:text-black transition-colors duration-300 relative group flex'>
+            <a href="#">Dropdown</a> <SlArrowDown className='mt-2.5 ml-1 text-sm' />
+            <ul className='absolute left-0 w-40 md:w-48 bg-black md:bg-white text-white md:text-black hidden group-hover:block top-7 md:top-[40px]'>
+              {
+                subMenu.map((value, index) => (
+                  <li className='px-4 py-2 hover:bg-none md:hover:bg-gray-200'><a href={value.link}>{value.sub}</a></li>
+                ))
+              }
+            </ul>
+          </li>
+        </ul>
+        <ul
+          className= 'text-black md:text-white my-5 md:my-0 mx-[-100px] md:mx-0 bg-black md:bg-none hidden md:flex justify-center items-center text-lg transition-all duration-500 ' >
           {menu.map((value, index) => (
             <li className=' w-full h-full ml-5 px-2 py-1 my-7 md:my-0 hover:bg-none  md:hover:bg-white hover:text-black transition-colors duration-300'><a href={value.link}>{value.name}</a></li>
           ))}
